@@ -29,7 +29,7 @@ export {
   SITE_CREDITS,
 }
 
-export const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://skidmo.sa'
+export const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://skidmo.com'
 
 /** Contact page quote / enquiry form anchor */
 export const CONTACT_FORM_ID = 'quote-form'

@@ -24,14 +24,14 @@ export const SEO_KEYWORDS = [
 /** Absolute URL for OG images — production domain when running locally */
 function shareBaseUrl(): string {
   const url = SITE_URL.replace(/\/$/, '')
-  if (url.includes('localhost') || url.includes('127.0.0.1')) return 'https://skidmo.sa'
+  if (url.includes('localhost') || url.includes('127.0.0.1')) return 'https://skidmo.com'
   return url
 }
 
 export const OG_IMAGE_PATH = '/og-image.jpg'
 export const OG_IMAGE_URL = `${shareBaseUrl()}${OG_IMAGE_PATH}`
 export const OG_IMAGE_ALT =
-  'SKIDMO by Colmo Ventures — Colmo PPF, paint protection film, ceramic coating, and car detailing in Riyadh'
+  'SKIDMO by Colmo Ventures — Colmo PPF, paint protection film, ceramic coating and luxury car detailing in Riyadh'
 
 export interface PageSEO {
   path: string
