@@ -15,7 +15,7 @@
 # Sanity API proxy — must come BEFORE the SPA catch-all
 [[redirects]]
   from = "/sanity-api/*"
-  to = "https://5o4lc5ha.api.sanity.io/:splat"
+  to = "https://idpcv35f.api.sanity.io/:splat"
   status = 200
   force = true
 

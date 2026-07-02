@@ -122,7 +122,7 @@ function contactApiDevPlugin(): Plugin {
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const projectId = env.VITE_SANITY_PROJECT_ID || '5o4lc5ha'
+  const projectId = env.VITE_SANITY_PROJECT_ID || 'idpcv35f'
   const rawUrl = env.VITE_SITE_URL || 'https://skidmosa.com'
   const siteUrl = rawUrl.includes('localhost') || rawUrl.includes('127.0.0.1')
     ? 'https://skidmosa.com'
