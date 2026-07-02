@@ -10,9 +10,14 @@ interface PrerenderPage {
   canonical: string
   ogImage: string
   ogImageAlt: string
+  fbAppId?: string
 }
 
 function injectMeta(html: string, page: PrerenderPage): string {
+  const fbTag = page.fbAppId
+    ? `\n    <meta property="fb:app_id" content="${page.fbAppId}" />`
+    : ''
+
   const metaBlock = [
     `<title>${page.title}</title>`,
     `<meta name="description" content="${page.description}" />`,
@@ -24,6 +29,7 @@ function injectMeta(html: string, page: PrerenderPage): string {
     `<meta property="og:url" content="${page.canonical}" />`,
     `<meta property="og:image" content="${page.ogImage}" />`,
     `<meta property="og:image:secure_url" content="${page.ogImage}" />`,
+    `<meta property="og:image:type" content="image/jpeg" />`,
     `<meta property="og:image:width" content="1200" />`,
     `<meta property="og:image:height" content="630" />`,
     `<meta property="og:image:alt" content="${page.ogImageAlt}" />`,
@@ -34,7 +40,7 @@ function injectMeta(html: string, page: PrerenderPage): string {
     `<meta name="twitter:description" content="${page.description}" />`,
     `<meta name="twitter:image" content="${page.ogImage}" />`,
     `<meta name="twitter:image:alt" content="${page.ogImageAlt}" />`,
-  ].join('\n    ')
+  ].join('\n    ') + fbTag
 
   // Strip any existing SEO block from dev template
   let output = html.replace(/<!-- SEO:PRERENDER -->[\s\S]*?<!-- \/SEO:PRERENDER -->/, '')

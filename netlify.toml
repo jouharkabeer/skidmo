@@ -6,6 +6,13 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Force HTTPS (Facebook & crawlers should not scrape http://)
+[[redirects]]
+  from = "http://*"
+  to = "https://:splat"
+  status = 301
+  force = true
+
 # Contact form API
 [[redirects]]
   from = "/api/contact"
@@ -24,3 +31,16 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+# Prevent Range requests returning 206 to Facebook/crawlers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Accept-Ranges = "none"
+
+[[headers]]
+  for = "/og-image.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+    Content-Type = "image/jpeg"
+    Accept-Ranges = "none"

@@ -43,6 +43,7 @@ export function SEO({
   const fullTitle = buildFullTitle(title, SITE_NAME)
   const canonicalUrl = canonical || SITE_URL
   const imageUrl = absoluteUrl(ogImage)
+  const fbAppId = import.meta.env.VITE_FB_APP_ID
 
   const breadcrumbSchema = breadcrumbs?.length
     ? {
@@ -82,11 +83,13 @@ export function SEO({
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:secure_url" content={imageUrl} />
+      <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={ogImageAlt} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="en_SA" />
+      {fbAppId && <meta property="fb:app_id" content={fbAppId} />}
 
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />

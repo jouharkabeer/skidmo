@@ -69,10 +69,10 @@ function escapeAttr(value: string): string {
   return value.replace(/&/g, '&amp;').replace(/"/g, '&quot;')
 }
 
-function buildPrerenderPages(siteUrl: string) {
+function buildPrerenderPages(siteUrl: string, fbAppId?: string) {
   const base = siteUrl.replace(/\/$/, '')
   const ogImage = `${base}/og-image.jpg`
-  const ogAlt = 'SKIDMO — PPF and ceramic coating in Riyadh'
+  const ogAlt = 'SKIDMO by Colmo Ventures — Colmo PPF, paint protection film and car detailing in Riyadh'
   return PRERENDER_PAGES.map((page) => ({
     ...page,
     title: escapeAttr(page.title),
@@ -81,6 +81,7 @@ function buildPrerenderPages(siteUrl: string) {
     canonical: `${base}${page.path === '/' ? '/' : page.path}`,
     ogImage,
     ogImageAlt: escapeAttr(ogAlt),
+    ...(fbAppId ? { fbAppId } : {}),
   }))
 }
 
@@ -133,7 +134,7 @@ export default defineConfig(({ mode }) => {
       react(),
       tailwindcss(),
       contactApiDevPlugin(),
-      seoPrerenderPlugin(buildPrerenderPages(siteUrl)),
+      seoPrerenderPlugin(buildPrerenderPages(siteUrl, env.VITE_FB_APP_ID || undefined)),
     ],
     resolve: {
       alias: {

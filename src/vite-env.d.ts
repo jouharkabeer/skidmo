@@ -24,6 +24,7 @@ interface ImportMetaEnv {
   readonly VITE_ADMIN_PASSWORD: string
   readonly VITE_GOOGLE_MAPS_EMBED_URL: string
   readonly VITE_ELFSIGHT_WIDGET_ID: string
+  readonly VITE_FB_APP_ID?: string
 }
 
 interface ImportMeta {
