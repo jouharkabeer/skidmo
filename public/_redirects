@@ -1,2 +1,3 @@
+/api/contact  /.netlify/functions/contact  200
 /sanity-api/*  https://idpcv35f.api.sanity.io/:splat  200
 /*    /index.html   200
