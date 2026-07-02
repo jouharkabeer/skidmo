@@ -24,7 +24,7 @@ export const SEO_KEYWORDS = [
 /** Absolute URL for OG images — production domain when running locally */
 function shareBaseUrl(): string {
   const url = SITE_URL.replace(/\/$/, '')
-  if (url.includes('localhost') || url.includes('127.0.0.1')) return 'https://skidmo.com'
+  if (url.includes('localhost') || url.includes('127.0.0.1')) return 'https://skidmosa.com'
   return url
 }
 

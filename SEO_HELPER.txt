@@ -3,7 +3,7 @@
 ================================================================================
 
 Use this checklist after the site is live on your production domain
-(https://skidmo.com). SEO tools need the final domain — not a Netlify preview URL.
+(https://skidmosa.com). SEO tools need the final domain — not a Netlify preview URL.
 
 Related file: NETLIFY_DEPLOY_HELP.txt (deployment & env vars)
 
@@ -28,16 +28,16 @@ WHAT IS ALREADY BUILT INTO THE SITE
 STEP 0 — BEFORE YOU REGISTER ANYTHING
 --------------------------------------------------------------------------------
 
-  1. Deploy to production with custom domain skidmo.com
+  1. Deploy to production with custom domain skidmosa.com
   2. Set Netlify env var:
-       VITE_SITE_URL=https://skidmo.com
+       VITE_SITE_URL=https://skidmosa.com
   3. Trigger a fresh deploy (Clear cache & deploy)
   4. Confirm these URLs work in a browser:
-       https://skidmo.com/
-       https://skidmo.com/robots.txt
-       https://skidmo.com/sitemap.xml
-       https://skidmo.com/og-image.jpg
-  5. View page source on homepage — confirm canonical is https://skidmo.com/
+       https://skidmosa.com/
+       https://skidmosa.com/robots.txt
+       https://skidmosa.com/sitemap.xml
+       https://skidmosa.com/og-image.jpg
+  5. View page source on homepage — confirm canonical is https://skidmosa.com/
 
   If VITE_SITE_URL still points to *.netlify.app, Google will index the wrong
   domain and social previews will use incorrect links.
@@ -50,7 +50,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
 
   A) Add property
      1. Click "Add property"
-     2. Choose "URL prefix" → enter: https://skidmo.com
+     2. Choose "URL prefix" → enter: https://skidmosa.com
         (Domain property also works but needs DNS TXT verification)
 
   B) Verify ownership — pick ONE method:
@@ -79,10 +79,10 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
   D) Request indexing for key pages
      1. URL Inspection (top search bar)
      2. Paste each URL and click "Request indexing":
-          https://skidmo.com/
-          https://skidmo.com/services
-          https://skidmo.com/contact
-          https://skidmo.com/about
+          https://skidmosa.com/
+          https://skidmosa.com/services
+          https://skidmosa.com/contact
+          https://skidmosa.com/about
 
   E) Monitor (weekly)
      - Performance → queries (see what people search)
@@ -101,7 +101,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
   1. Create or claim listing: "SKIDMO" in Riyadh (Al Olaya)
   2. Category: Auto detailing / Car repair (or closest match)
   3. Add:
-       Website:  https://skidmo.com
+       Website:  https://skidmosa.com
        Phone:    +966 50 000 0000  (update to real number)
        Address:  Al Olaya, Riyadh
        Hours:    Sat–Thu 10AM–10PM, Fri 4PM–10PM
@@ -119,9 +119,9 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
 
   URL: https://www.bing.com/webmasters
 
-  1. Add site: https://skidmo.com
+  1. Add site: https://skidmosa.com
   2. Verify via DNS TXT or meta tag (same as Google)
-  3. Submit sitemap: https://skidmo.com/sitemap.xml
+  3. Submit sitemap: https://skidmosa.com/sitemap.xml
   4. Optional: import settings from Google Search Console
 
 --------------------------------------------------------------------------------
@@ -137,7 +137,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
      - SKIDMO footer already links to Colmo — reciprocal link helps SEO
      - Use anchor text like: "SKIDMO — Colmo PPF Riyadh" or "SKIDMO PPF studio"
 
-  B) Social profiles — link back to https://skidmo.com
+  B) Social profiles — link back to https://skidmosa.com
      Update bio/website field on each:
        Instagram:  https://instagram.com/skidmo
        X/Twitter:  https://twitter.com/skidmo
@@ -161,7 +161,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
        Name:    SKIDMO
        Address: King Fahd Road, Al Olaya, Riyadh (or short: Al Olaya, Riyadh)
        Phone:   +966 50 000 0000
-       URL:     https://skidmo.com
+       URL:     https://skidmosa.com
 
      Mismatched phone/address across listings hurts local rankings.
 
@@ -173,7 +173,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
 
   - Facebook Sharing Debugger:
       https://developers.facebook.com/tools/debug/
-      Enter: https://skidmo.com
+      Enter: https://skidmosa.com
       Click "Scrape Again" after any OG image change
 
   - Twitter/X Card Validator:
@@ -183,7 +183,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
   - LinkedIn Post Inspector:
       https://www.linkedin.com/post-inspector/
 
-  OG image location: https://skidmo.com/og-image.jpg
+  OG image location: https://skidmosa.com/og-image.jpg
   To update: replace public/og-image.jpg (1200×630 px), redeploy, re-scrape.
 
 --------------------------------------------------------------------------------
@@ -234,7 +234,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
 8. POST-LAUNCH SEO CHECKLIST
 --------------------------------------------------------------------------------
 
-  [ ] VITE_SITE_URL=https://skidmo.com on Netlify
+  [ ] VITE_SITE_URL=https://skidmosa.com on Netlify
   [ ] HTTPS working (padlock in browser)
   [ ] robots.txt accessible
   [ ] sitemap.xml accessible
@@ -244,7 +244,7 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
   [ ] Google Business Profile created & verified
   [ ] Bing Webmaster Tools — sitemap submitted
   [ ] Colmo Ventures website links to SKIDMO
-  [ ] Social profiles link to https://skidmo.com
+  [ ] Social profiles link to https://skidmosa.com
   [ ] OG image tested in Facebook Debugger
   [ ] NAP consistent across all listings
   [ ] Real phone number & address updated in data.json + GBP
@@ -273,8 +273,8 @@ STEP 0 — BEFORE YOU REGISTER ANYTHING
 10. USEFUL LINKS
 --------------------------------------------------------------------------------
 
-  SKIDMO site:           https://skidmo.com
-  Sitemap:               https://skidmo.com/sitemap.xml
+  SKIDMO site:           https://skidmosa.com
+  Sitemap:               https://skidmosa.com/sitemap.xml
   Parent company:        https://colmogrp.com/
   Google Search Console: https://search.google.com/search-console
   Google Business:       https://business.google.com

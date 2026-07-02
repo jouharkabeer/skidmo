@@ -11,7 +11,7 @@ Follow these steps to deploy to production on Netlify.
 
   - GitHub / GitLab / Bitbucket repo with this project pushed
   - Netlify account (https://app.netlify.com)
-  - Domain: skidmo.com (or your production domain)
+  - Domain: skidmosa.com (or your production domain)
   - SMTP credentials for contact form emails
   - Sanity CMS project (optional — site works with data.json fallback)
 
@@ -39,7 +39,7 @@ Follow these steps to deploy to production on Netlify.
 
   Required for production:
 
-  VITE_SITE_URL=https://skidmo.com
+  VITE_SITE_URL=https://skidmosa.com
   VITE_ADMIN_PASSWORD=your-secure-admin-password
 
   Sanity CMS (if using live CMS instead of data.json only):
@@ -54,13 +54,15 @@ Follow these steps to deploy to production on Netlify.
   VITE_ELFSIGHT_APP_ID=your-elfsight-id
 
   SMTP — contact form (server-side, NOT prefixed with VITE_):
-  SMTP_HOST=smtp.your-provider.com
+  See SMTP_HELPER.txt for full Gmail setup with skidmoksa@gmail.com
+
+  SMTP_HOST=smtp.gmail.com
   SMTP_PORT=587
   SMTP_SECURE=false
-  SMTP_USER=your-smtp-username
-  SMTP_PASS=your-smtp-password
-  SMTP_FROM=hello@skidmo.sa
-  SMTP_TO=hello@skidmo.sa
+  SMTP_USER=skidmoksa@gmail.com
+  SMTP_PASS=your_gmail_app_password
+  SMTP_FROM=skidmoksa@gmail.com
+  SMTP_TO=skidmoksa@gmail.com
 
   Notes:
   - Variables starting with VITE_ are baked into the client bundle at build time.
@@ -74,7 +76,7 @@ Follow these steps to deploy to production on Netlify.
   In Sanity Manage (https://www.sanity.io/manage):
     1. Open project 5o4lc5ha
     2. API → CORS origins → Add origin
-    3. Add: https://skidmo.com
+    3. Add: https://skidmosa.com
     4. Add: https://your-site-name.netlify.app (for preview deploys)
     5. Allow credentials: Yes
 
@@ -85,13 +87,13 @@ Follow these steps to deploy to production on Netlify.
 --------------------------------------------------------------------------------
 
   1. Netlify → Site configuration → Domain management → Add domain
-  2. Add skidmo.com (and www.skidmo.com if needed)
+  2. Add skidmosa.com (and www.skidmosa.com if needed)
   3. Update DNS at your registrar:
        A record  → 75.2.60.5
        CNAME www → your-site-name.netlify.app
      (Or use Netlify DNS — follow the in-dashboard instructions.)
   4. Enable HTTPS (Netlify provisions Let's Encrypt automatically)
-  5. Set VITE_SITE_URL=https://skidmo.com and redeploy for correct SEO/OG URLs
+  5. Set VITE_SITE_URL=https://skidmosa.com and redeploy for correct SEO/OG URLs
 
 --------------------------------------------------------------------------------
 6. CONTACT FORM
@@ -101,7 +103,7 @@ Follow these steps to deploy to production on Netlify.
     netlify/functions/contact.ts
 
   Test after deploy:
-    1. Open https://skidmo.com/contact
+    1. Open https://skidmosa.com/contact
     2. Submit a test enquiry
     3. Check Netlify → Functions → contact → Logs for errors
     4. Verify email arrives at SMTP_TO address
@@ -110,7 +112,7 @@ Follow these steps to deploy to production on Netlify.
 7. ADMIN PANEL
 --------------------------------------------------------------------------------
 
-  URL: https://skidmo.com/admin
+  URL: https://skidmosa.com/admin
   Password: value of VITE_ADMIN_PASSWORD
 
   Manages: Gallery, Offers, Testimonials, Homepage Stats (via Sanity).
@@ -166,7 +168,8 @@ Follow these steps to deploy to production on Netlify.
 11. USEFUL LINKS
 --------------------------------------------------------------------------------
 
-  SKIDMO site:        https://skidmo.com
+  SKIDMO site:        https://skidmosa.com
+  SMTP setup guide:   SMTP_HELPER.txt (in project root)
   Parent company:     https://colmogrp.com/
   Built by:           https://lsofito.com
   Netlify docs:       https://docs.netlify.com

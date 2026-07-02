@@ -14,17 +14,16 @@
     "color": "#41287b"
   },
   "contact": {
-    "phone": "+966 50 000 0000",
-    "whatsapp": "+966500000000",
-    "email": "hello@skidmo.sa",
-    "address": "King Fahd Road, Al Olaya District, Riyadh 12211, Saudi Arabia",
-    "addressShort": "Al Olaya, Riyadh",
+    "phone": "+966 9200 17582",
+    "whatsapp": "+966920017582",
+    "email": "skidmoksa@gmail.com",
+    "address": " Umar bin abdulaziz, Ar Rabwah, Riyadh 12824, Saudi Arabia",
+    "addressShort": "Ar Rabwah, Riyadh",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query=SKIDMO+Al+Olaya+Riyadh+Saudi+Arabia",
     "coordinates": { "lat": 24.7136, "lng": 46.6753 }
   },
   "workingHours": [
-    { "day": "Saturday – Thursday", "hours": "10:00 AM – 10:00 PM" },
-    { "day": "Friday", "hours": "4:00 PM – 10:00 PM" }
+    { "day": "Saturday – Friday", "hours": "12:00 PM – 11:00 PM" },
   ],
   "social": {
     "instagram": "https://instagram.com/skidmo",
@@ -410,7 +409,7 @@
         {
           "heading": "Your Rights & Contact",
           "paragraphs": [
-            "You may request access, correction, or deletion of your personal data by contacting us at hello@skidmo.sa. We may update this policy periodically; continued use of our services constitutes acceptance of changes."
+            "You may request access, correction, or deletion of your personal data by contacting us at skidmoksa@gmail.com. We may update this policy periodically; continued use of our services constitutes acceptance of changes."
           ]
         }
       ]

@@ -123,9 +123,9 @@ function contactApiDevPlugin(): Plugin {
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const projectId = env.VITE_SANITY_PROJECT_ID || '5o4lc5ha'
-  const rawUrl = env.VITE_SITE_URL || 'https://skidmo.com'
+  const rawUrl = env.VITE_SITE_URL || 'https://skidmosa.com'
   const siteUrl = rawUrl.includes('localhost') || rawUrl.includes('127.0.0.1')
-    ? 'https://skidmo.com'
+    ? 'https://skidmosa.com'
     : rawUrl.replace(/\/$/, '')
 
   return {
