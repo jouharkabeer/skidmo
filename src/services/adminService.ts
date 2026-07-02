@@ -1,5 +1,5 @@
 import { sanityWriteClient } from '@/sanity/writeClient'
-import type { GalleryImage, Offer, Testimonial, StatItem, HomeStats } from '@/types'
+import type { GalleryImage, Offer, Testimonial, StatItem, HomeStats, HomeHero, SanityImage } from '@/types'
 
 function client() {
   if (!sanityWriteClient) throw new Error('Sanity write client not configured. Check your .env file.')
@@ -135,5 +135,64 @@ export async function adminSaveHomeStats(stats: StatItem[]) {
     _id: 'homeStats',
     _type: 'homeStats',
     stats,
+  })
+}
+
+// ─── Homepage hero (singleton) ──────────────────────────────
+
+export async function adminGetHomeHero(): Promise<HomeHero | null> {
+  return client().fetch(`*[_type == "homeHero"][0] {
+    _id, badge, titleBefore, titleAccent, titleAfter,
+    slides[] { description, alt, imageUrl, image }
+  }`)
+}
+
+export type HeroSlideSaveInput = {
+  description: string
+  alt: string
+  imageUrl?: string
+  image?: File | null
+  existingImage?: SanityImage
+}
+
+export async function adminSaveHomeHero(data: {
+  badge: string
+  titleBefore: string
+  titleAccent: string
+  titleAfter: string
+  slides: HeroSlideSaveInput[]
+}) {
+  const slides = await Promise.all(
+    data.slides.map(async (slide, index) => {
+      const imageUrl = slide.imageUrl?.trim() || ''
+      let image: SanityImage | { _type: 'image'; asset: { _type: 'reference'; _ref: string } } | undefined =
+        slide.existingImage
+
+      if (slide.image) {
+        const asset = await uploadImage(slide.image)
+        image = { _type: 'image', asset: { _type: 'reference', _ref: asset._id } }
+      } else if (imageUrl) {
+        image = undefined
+      }
+
+      return {
+        _type: 'object' as const,
+        _key: `slide-${index}`,
+        description: slide.description.trim(),
+        alt: slide.alt.trim(),
+        imageUrl: imageUrl || undefined,
+        image: imageUrl ? undefined : image,
+      }
+    }),
+  )
+
+  return client().createOrReplace({
+    _id: 'homeHero',
+    _type: 'homeHero',
+    badge: data.badge.trim(),
+    titleBefore: data.titleBefore.trim(),
+    titleAccent: data.titleAccent.trim(),
+    titleAfter: data.titleAfter.trim(),
+    slides,
   })
 }

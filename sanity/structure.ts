@@ -7,6 +7,12 @@ export const structure: StructureResolver = (S) =>
       S.listItem()
         .title('Site Settings')
         .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+      S.listItem()
+        .title('Homepage Hero')
+        .child(S.document().schemaType('homeHero').documentId('homeHero')),
+      S.listItem()
+        .title('Homepage Stats')
+        .child(S.document().schemaType('homeStats').documentId('homeStats')),
       S.divider(),
       S.documentTypeListItem('galleryImage').title('Gallery Images'),
       S.documentTypeListItem('offer').title('Offers'),

@@ -76,6 +76,20 @@ export const homeStatsQuery = `*[_type == "homeStats"][0] {
   }
 }`
 
+export const homeHeroQuery = `*[_type == "homeHero"][0] {
+  _id,
+  badge,
+  titleBefore,
+  titleAccent,
+  titleAfter,
+  slides[] {
+    description,
+    alt,
+    imageUrl,
+    image
+  }
+}`
+
 export const siteSettingsQuery = `*[_type == "siteSettings"][0] {
   _id,
   siteName,

@@ -7,6 +7,7 @@ import { faq } from './faq'
 import { seo, seoPage } from './seo'
 import { siteSettings } from './siteSettings'
 import { homeStats } from './homeStats'
+import { homeHero } from './homeHero'
 
 export const schemaTypes = [
   galleryImage,
@@ -19,4 +20,5 @@ export const schemaTypes = [
   seoPage,
   siteSettings,
   homeStats,
+  homeHero,
 ]

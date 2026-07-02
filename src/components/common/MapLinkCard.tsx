@@ -15,7 +15,7 @@ function MapPreview({ dark }: { dark?: boolean }) {
   const [imgFailed, setImgFailed] = useState(false)
 
   const googleStatic = apiKey
-    ? `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=14&size=600x320&scale=2&markers=color:0xB8955C%7C${lat},${lng}&key=${apiKey}`
+    ? `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=14&size=600x320&scale=2&markers=color:0xA66B45%7C${lat},${lng}&key=${apiKey}`
     : null
 
   if (googleStatic && !imgFailed) {
@@ -34,7 +34,7 @@ function MapPreview({ dark }: { dark?: boolean }) {
     <div
       className={cn(
         'relative h-full w-full',
-        dark ? 'bg-[#1c1b19]' : 'bg-stone-deep'
+        dark ? 'bg-dark-elevated' : 'bg-stone-deep'
       )}
       aria-hidden
     >
@@ -42,7 +42,7 @@ function MapPreview({ dark }: { dark?: boolean }) {
         className="absolute inset-0 opacity-40"
         style={{
           backgroundImage:
-            'linear-gradient(rgba(184,149,92,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(184,149,92,0.12) 1px, transparent 1px)',
+            'linear-gradient(rgba(166,107,69,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(166,107,69,0.12) 1px, transparent 1px)',
           backgroundSize: '20px 20px',
         }}
       />
@@ -50,7 +50,7 @@ function MapPreview({ dark }: { dark?: boolean }) {
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage:
-            'linear-gradient(135deg, transparent 45%, rgba(184,149,92,0.25) 46%, rgba(184,149,92,0.25) 48%, transparent 49%)',
+            'linear-gradient(135deg, transparent 45%, rgba(166,107,69,0.25) 46%, rgba(166,107,69,0.25) 48%, transparent 49%)',
         }}
       />
       <div className="absolute left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2">

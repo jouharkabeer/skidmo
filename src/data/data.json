@@ -4,6 +4,29 @@
     "tagline": "SKIDMO — a venture by Colmo",
     "description": "SKIDMO — a venture by Colmo. Saudi Arabia's premium Colmo PPF studio in Riyadh for paint protection film, ceramic coating, window tinting, paint correction & luxury car detailing. XPEL & STEK certified installers."
   },
+  "hero": {
+    "badge": "Riyadh, Saudi Arabia",
+    "titleBefore": "The Art of",
+    "titleAccent": "Automotive",
+    "titleAfter": "Protection",
+    "slides": [
+      {
+        "src": "/hero/ppf-install-1.jpg",
+        "alt": "Worker applying protective transparent PPF film on a luxury car door panel",
+        "description": "Expert paint protection film (PPF), ceramic coating, and luxury car detailing in Riyadh — XPEL & STEK certified for discerning owners across Saudi Arabia."
+      },
+      {
+        "src": "/hero/ppf-install-2.jpg",
+        "alt": "Technician installing anti-gravel paint protection film on a premium vehicle",
+        "description": "Precision anti-gravel PPF installation — shielding premium paint from stone chips, road debris, and Saudi desert conditions."
+      },
+      {
+        "src": "/hero/ppf-install-3.jpg",
+        "alt": "Professional PPF installer applying protective film on a luxury car body",
+        "description": "Hand-finished protection for luxury and exotic vehicles — trusted by Riyadh's most discerning automotive owners."
+      }
+    ]
+  },
   "parentCompany": {
     "name": "Colmo Ventures",
     "url": "https://colmogrp.com/"

@@ -6,6 +6,7 @@ import {
   Tag,
   MessageSquareQuote,
   BarChart3,
+  Sparkles,
   ExternalLink,
   LogOut,
   Menu,
@@ -26,14 +27,53 @@ import {
   adminDeleteTestimonial,
   adminGetHomeStats,
   adminSaveHomeStats,
+  adminGetHomeHero,
+  adminSaveHomeHero,
 } from '@/services/adminService'
 import { OFFER_BANNER_SIZES, GALLERY_IMAGE_SIZE } from '@/constants/cms'
 import { DEFAULT_STATS } from '@/constants'
+import { DEFAULT_HOME_HERO } from '@/constants/hero'
 import { getImageUrl } from '@/sanity/client'
-import type { GalleryImage, Offer, Testimonial, StatItem } from '@/types'
+import type { GalleryImage, Offer, Testimonial, StatItem, HomeHero, SanityImage } from '@/types'
 import './Admin.css'
 
-type Tab = 'gallery' | 'offers' | 'testimonials' | 'stats'
+type Tab = 'gallery' | 'offers' | 'testimonials' | 'stats' | 'hero'
+
+interface HeroSlideEdit {
+  description: string
+  alt: string
+  imageUrl: string
+  previewSrc: string
+  existingImage?: SanityImage
+}
+
+function buildHeroSlidesFromCms(cms: HomeHero | null): HeroSlideEdit[] {
+  return DEFAULT_HOME_HERO.slides.map((def, index) => {
+    const slide = cms?.slides?.[index]
+    const preview =
+      slide?.imageUrl?.trim() ||
+      (slide?.image ? getImageUrl(slide.image, { width: 480 }) : '') ||
+      def.src
+
+    return {
+      description: slide?.description ?? def.description,
+      alt: slide?.alt ?? def.alt,
+      imageUrl: slide?.imageUrl ?? '',
+      previewSrc: preview,
+      existingImage: slide?.image,
+    }
+  })
+}
+
+function buildDefaultHeroForm() {
+  return {
+    badge: DEFAULT_HOME_HERO.badge,
+    titleBefore: DEFAULT_HOME_HERO.titleBefore,
+    titleAccent: DEFAULT_HOME_HERO.titleAccent,
+    titleAfter: DEFAULT_HOME_HERO.titleAfter,
+    slides: buildHeroSlidesFromCms(null),
+  }
+}
 
 const CATEGORIES = ['PPF', 'Ceramic', 'Tint', 'Correction', 'Interior', 'Detailing', 'Studio']
 const SOURCES = ['Direct', 'Google', 'Instagram']
@@ -43,6 +83,7 @@ const TAB_META: Record<Tab, { label: string; title: string; description: string;
   offers: { label: 'Offers', title: 'Offers', description: 'Create promotions with responsive banners', icon: Tag },
   testimonials: { label: 'Testimonials', title: 'Testimonials', description: 'Manage client reviews and quotes', icon: MessageSquareQuote },
   stats: { label: 'Stats', title: 'Homepage Stats', description: 'Edit the numbers shown on the homepage', icon: BarChart3 },
+  hero: { label: 'Hero', title: 'Homepage Hero', description: 'Edit hero images, headlines, and slide descriptions', icon: Sparkles },
 }
 
 export default function Admin() {
@@ -89,6 +130,15 @@ export default function Admin() {
   // Stats state
   const [stats, setStats] = useState<StatItem[]>(DEFAULT_STATS.map((s) => ({ ...s })))
 
+  // Hero state
+  const defaultHeroForm = buildDefaultHeroForm()
+  const [heroBadge, setHeroBadge] = useState(defaultHeroForm.badge)
+  const [heroTitleBefore, setHeroTitleBefore] = useState(defaultHeroForm.titleBefore)
+  const [heroTitleAccent, setHeroTitleAccent] = useState(defaultHeroForm.titleAccent)
+  const [heroTitleAfter, setHeroTitleAfter] = useState(defaultHeroForm.titleAfter)
+  const [heroSlides, setHeroSlides] = useState<HeroSlideEdit[]>(defaultHeroForm.slides)
+  const heroImageRefs = useRef<(HTMLInputElement | null)[]>([])
+
   const switchTab = (next: Tab) => {
     setTab(next)
     setError('')
@@ -107,11 +157,12 @@ export default function Admin() {
     setLoading(true)
     setError('')
     try {
-      const [g, o, t, s] = await Promise.all([
+      const [g, o, t, s, h] = await Promise.all([
         adminGetGallery(),
         adminGetOffers(),
         adminGetTestimonials(),
         adminGetHomeStats(),
+        adminGetHomeHero(),
       ])
       setGallery(g)
       setOffers(o)
@@ -121,6 +172,12 @@ export default function Admin() {
       } else {
         setStats(DEFAULT_STATS.map((item) => ({ ...item })))
       }
+      setHeroBadge(h?.badge ?? DEFAULT_HOME_HERO.badge)
+      setHeroTitleBefore(h?.titleBefore ?? DEFAULT_HOME_HERO.titleBefore)
+      setHeroTitleAccent(h?.titleAccent ?? DEFAULT_HOME_HERO.titleAccent)
+      setHeroTitleAfter(h?.titleAfter ?? DEFAULT_HOME_HERO.titleAfter)
+      setHeroSlides(buildHeroSlidesFromCms(h))
+      heroImageRefs.current = []
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load content')
     } finally {
@@ -305,6 +362,79 @@ export default function Admin() {
     setStats(DEFAULT_STATS.map((item) => ({ ...item })))
   }
 
+  const updateHeroSlide = (index: number, patch: Partial<HeroSlideEdit>) => {
+    setHeroSlides((prev) =>
+      prev.map((slide, i) => (i === index ? { ...slide, ...patch } : slide)),
+    )
+  }
+
+  const handleHeroImageUrlChange = (index: number, imageUrl: string) => {
+    const def = DEFAULT_HOME_HERO.slides[index]
+    const slide = heroSlides[index]
+    const trimmed = imageUrl.trim()
+    let previewSrc = def?.src ?? ''
+    if (trimmed) previewSrc = trimmed
+    else if (slide?.existingImage) {
+      previewSrc = getImageUrl(slide.existingImage, { width: 480 }) || previewSrc
+    }
+
+    updateHeroSlide(index, { imageUrl, previewSrc })
+  }
+
+  const handleHeroImageFileChange = (index: number, file: File | undefined) => {
+    if (!file) return
+    const previewSrc = URL.createObjectURL(file)
+    updateHeroSlide(index, { imageUrl: '', previewSrc })
+  }
+
+  const handleHeroSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    setUploading(true)
+    setError('')
+    try {
+      if (heroSlides.some((slide) => !slide.description.trim() || !slide.alt.trim())) {
+        setError('Each slide needs a description and alt text.')
+        return
+      }
+
+      await adminSaveHomeHero({
+        badge: heroBadge,
+        titleBefore: heroTitleBefore,
+        titleAccent: heroTitleAccent,
+        titleAfter: heroTitleAfter,
+        slides: heroSlides.map((slide, index) => ({
+          description: slide.description,
+          alt: slide.alt,
+          imageUrl: slide.imageUrl,
+          image: heroImageRefs.current[index]?.files?.[0] ?? null,
+          existingImage: slide.existingImage,
+        })),
+      })
+
+      heroImageRefs.current.forEach((ref) => {
+        if (ref) ref.value = ''
+      })
+      flash('Homepage hero saved!')
+      await loadContent()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Save failed')
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  const handleHeroReset = () => {
+    const defaults = buildDefaultHeroForm()
+    setHeroBadge(defaults.badge)
+    setHeroTitleBefore(defaults.titleBefore)
+    setHeroTitleAccent(defaults.titleAccent)
+    setHeroTitleAfter(defaults.titleAfter)
+    setHeroSlides(defaults.slides)
+    heroImageRefs.current.forEach((ref) => {
+      if (ref) ref.value = ''
+    })
+  }
+
   // ─── Login screen ─────────────────────────────────────────
 
   if (!authenticated) {
@@ -316,7 +446,7 @@ export default function Admin() {
             <Logo variant="letter" link={false} />
             <div>
               <h2>Content Management</h2>
-              <p>Manage gallery, offers, testimonials, and homepage stats for the SKIDMO website — built for your Riyadh studio.</p>
+              <p>Manage gallery, offers, testimonials, homepage hero, and stats for the SKIDMO website — built for your Riyadh studio.</p>
             </div>
             <p className="text-xs text-white/30">SKIDMO — a venture by Colmo</p>
           </div>
@@ -656,6 +786,91 @@ export default function Admin() {
                 )}
               </div>
             </>
+          )}
+
+          {/* ── Hero Tab ── */}
+          {tab === 'hero' && (
+            <div className="admin__section">
+              <h2>Homepage Hero</h2>
+              <p className="admin__hint">
+                Edit the hero headline and up to three slides. Each slide can use an image URL or an uploaded file — URL takes priority. Descriptions change with the active slide.
+              </p>
+              <form className="admin__form" onSubmit={handleHeroSubmit}>
+                <div className="admin__field">
+                  <label>Location Badge</label>
+                  <input value={heroBadge} onChange={(e) => setHeroBadge(e.target.value)} required />
+                </div>
+                <div className="admin__row">
+                  <div className="admin__field">
+                    <label>Headline (before accent)</label>
+                    <input value={heroTitleBefore} onChange={(e) => setHeroTitleBefore(e.target.value)} required />
+                  </div>
+                  <div className="admin__field">
+                    <label>Headline Accent</label>
+                    <input value={heroTitleAccent} onChange={(e) => setHeroTitleAccent(e.target.value)} required />
+                  </div>
+                  <div className="admin__field">
+                    <label>Headline (after accent)</label>
+                    <input value={heroTitleAfter} onChange={(e) => setHeroTitleAfter(e.target.value)} required />
+                  </div>
+                </div>
+
+                {heroSlides.map((slide, index) => (
+                  <div key={index} className="admin__card admin__hero-slide">
+                    <h3>Slide {index + 1}</h3>
+                    <div className="admin__hero-preview">
+                      <img src={slide.previewSrc} alt={slide.alt || `Hero slide ${index + 1}`} />
+                    </div>
+                    <div className="admin__field">
+                      <label>Description</label>
+                      <textarea
+                        value={slide.description}
+                        onChange={(e) => updateHeroSlide(index, { description: e.target.value })}
+                        rows={3}
+                        required
+                      />
+                    </div>
+                    <div className="admin__field">
+                      <label>Image Alt Text</label>
+                      <input
+                        value={slide.alt}
+                        onChange={(e) => updateHeroSlide(index, { alt: e.target.value })}
+                        required
+                      />
+                    </div>
+                    <div className="admin__field">
+                      <label>Image URL (optional)</label>
+                      <input
+                        type="url"
+                        value={slide.imageUrl}
+                        onChange={(e) => handleHeroImageUrlChange(index, e.target.value)}
+                        placeholder="https://..."
+                      />
+                      <p className="admin__hint">External link overrides uploaded image when set.</p>
+                    </div>
+                    <div className="admin__field">
+                      <label>Upload Image (optional)</label>
+                      <input
+                        ref={(el) => { heroImageRefs.current[index] = el }}
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => handleHeroImageFileChange(index, e.target.files?.[0])}
+                      />
+                      <p className="admin__hint">Recommended: 1920×1080 or wider landscape.</p>
+                    </div>
+                  </div>
+                ))}
+
+                <div className="admin__actions">
+                  <button type="button" className="admin__secondary" onClick={handleHeroReset}>
+                    Reset to defaults
+                  </button>
+                  <button type="submit" className="admin__submit" disabled={uploading}>
+                    {uploading ? 'Saving…' : 'Save Hero'}
+                  </button>
+                </div>
+              </form>
+            </div>
           )}
 
           {/* ── Stats Tab ── */}

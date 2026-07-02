@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { cn } from '@/utils'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { cn, scrollToTop } from '@/utils'
 import fullLogo from '@/assets/full-rbg.png'
 import letterLogo from '@/assets/letter-rbg.png'
 import iconLogo from '@/assets/logo-rbg.png'
@@ -31,6 +31,9 @@ export function Logo({
   imgClassName,
   link = true,
 }: LogoProps) {
+  const location = useLocation()
+  const navigate = useNavigate()
+
   const image = (
     <img
       src={sources[variant]}
@@ -44,9 +47,18 @@ export function Logo({
     return <div className={cn('inline-flex items-center', className)}>{image}</div>
   }
 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (location.pathname !== '/') {
+      navigate('/')
+    }
+    scrollToTop()
+  }
+
   return (
     <Link
       to="/"
+      onClick={handleClick}
       className={cn('inline-flex items-center transition-opacity hover:opacity-90', className)}
       aria-label="SKIDMO Home"
     >

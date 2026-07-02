@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScroll, useLockBody } from '@/hooks'
@@ -8,11 +8,12 @@ import { NAV_LINKS, CONTACT } from '@/constants'
 import { SERVICES_DATA } from '@/constants/services'
 import { Button } from '@/components/ui/Button'
 import { Logo } from '@/components/ui/Logo'
-import { cn } from '@/utils'
+import { cn, scrollToTop } from '@/utils'
 
 export function Navbar() {
   const { scrolled } = useScroll(40)
   const location = useLocation()
+  const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [megaOpen, setMegaOpen] = useState(false)
   const isHome = location.pathname === '/'
@@ -24,6 +25,19 @@ export function Navbar() {
     setMobileOpen(false)
     setMegaOpen(false)
   }, [location.pathname])
+
+  const goHome = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (location.pathname !== '/') {
+      navigate('/')
+    }
+    scrollToTop()
+    setMobileOpen(false)
+  }
+
+  const handleNavClick = (path: string) => (e: React.MouseEvent) => {
+    if (path === '/') goHome(e)
+  }
 
   const linkClass = (active: boolean) =>
     cn(
@@ -98,6 +112,7 @@ export function Navbar() {
                 key={link.path}
                 to={link.path}
                 className={linkClass(location.pathname === link.path)}
+                onClick={handleNavClick(link.path)}
               >
                 {link.label}
               </Link>
@@ -163,7 +178,10 @@ export function Navbar() {
                       key={link.path}
                       to={link.path}
                       className="border-b border-border py-5 font-display text-2xl text-text-primary"
-                      onClick={() => setMobileOpen(false)}
+                      onClick={(e) => {
+                        if (link.path === '/') goHome(e)
+                        else setMobileOpen(false)
+                      }}
                     >
                       {link.label}
                     </Link>

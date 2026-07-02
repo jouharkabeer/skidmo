@@ -35,3 +35,7 @@ export function debounce<T extends (...args: Parameters<T>) => void>(
     timer = setTimeout(() => fn(...args), delay)
   }
 }
+
+export function scrollToTop(behavior: ScrollBehavior = 'smooth') {
+  window.scrollTo({ top: 0, left: 0, behavior })
+}

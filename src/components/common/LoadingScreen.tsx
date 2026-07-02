@@ -2,13 +2,33 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Logo } from '@/components/ui/Logo'
 
+const INTRO_KEY = 'skidmo-intro-shown'
+
+function hasSeenIntro() {
+  try {
+    return sessionStorage.getItem(INTRO_KEY) === '1'
+  } catch {
+    return false
+  }
+}
+
 export function LoadingScreen() {
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(() => !hasSeenIntro())
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 1400)
+    if (!visible) return
+
+    const timer = setTimeout(() => {
+      try {
+        sessionStorage.setItem(INTRO_KEY, '1')
+      } catch {
+        /* ignore storage errors */
+      }
+      setVisible(false)
+    }, 1400)
+
     return () => clearTimeout(timer)
-  }, [])
+  }, [visible])
 
   return (
     <AnimatePresence>

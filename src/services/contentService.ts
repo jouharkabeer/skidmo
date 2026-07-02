@@ -9,8 +9,12 @@ import type {
   SEOData,
   StatItem,
   HomeStats,
+  HomeHero,
+  HeroSlideCms,
+  ResolvedHomeHero,
+  ResolvedHeroSlide,
 } from '@/types'
-import { sanityClient, isSanityConfigured } from '@/sanity/client'
+import { sanityClient, isSanityConfigured, getImageUrl } from '@/sanity/client'
 import {
   galleryQuery,
   galleryPaginatedQuery,
@@ -20,12 +24,14 @@ import {
   faqsQuery,
   companyInfoQuery,
   homeStatsQuery,
+  homeHeroQuery,
   siteSettingsQuery,
   servicesQuery,
   seoQuery,
 } from '@/sanity/queries'
 import { MOCK_GALLERY, MOCK_OFFERS, MOCK_TESTIMONIALS, MOCK_FAQS, MOCK_COMPANY_INFO } from '@/sanity/mockData'
 import { DEFAULT_STATS } from '@/constants'
+import { DEFAULT_HOME_HERO, type HeroSlideDefault } from '@/constants/hero'
 
 async function fetchSanity<T>(query: string, params?: Record<string, unknown>): Promise<T | null> {
   if (!sanityClient) return null
@@ -88,6 +94,47 @@ export async function getHomeStats(): Promise<StatItem[]> {
   const data = await fetchSanity<HomeStats>(homeStatsQuery)
   if (data?.stats?.length) return data.stats
   return DEFAULT_STATS
+}
+
+function resolveHeroSlide(
+  cmsSlide: HeroSlideCms | undefined,
+  defaultSlide: HeroSlideDefault,
+): ResolvedHeroSlide {
+  const imageUrl = cmsSlide?.imageUrl?.trim()
+  const sanityUrl = cmsSlide?.image ? getImageUrl(cmsSlide.image, { width: 1920 }) : null
+
+  return {
+    src: imageUrl || sanityUrl || defaultSlide.src,
+    alt: cmsSlide?.alt?.trim() || defaultSlide.alt,
+    description: cmsSlide?.description?.trim() || defaultSlide.description,
+  }
+}
+
+export async function getHomeHero(): Promise<ResolvedHomeHero> {
+  const defaults = DEFAULT_HOME_HERO
+  const data = await fetchSanity<HomeHero>(homeHeroQuery)
+
+  if (!data) {
+    return {
+      badge: defaults.badge,
+      titleBefore: defaults.titleBefore,
+      titleAccent: defaults.titleAccent,
+      titleAfter: defaults.titleAfter,
+      slides: defaults.slides.map((slide) => ({ ...slide })),
+    }
+  }
+
+  const slides = defaults.slides.map((defaultSlide, index) =>
+    resolveHeroSlide(data.slides?.[index], defaultSlide),
+  )
+
+  return {
+    badge: data.badge?.trim() || defaults.badge,
+    titleBefore: data.titleBefore?.trim() || defaults.titleBefore,
+    titleAccent: data.titleAccent?.trim() || defaults.titleAccent,
+    titleAfter: data.titleAfter?.trim() || defaults.titleAfter,
+    slides,
+  }
 }
 
 function mergeCompanyInfo(data: CompanyInfo | null | undefined): CompanyInfo {

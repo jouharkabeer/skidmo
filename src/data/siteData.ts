@@ -3,6 +3,13 @@ import type { FAQ, ServiceItem } from '@/types'
 
 export interface SiteJson {
   site: { name: string; tagline: string; description: string }
+  hero: {
+    badge: string
+    titleBefore: string
+    titleAccent: string
+    titleAfter: string
+    slides: { src: string; alt: string; description: string }[]
+  }
   parentCompany: { name: string; url: string }
   credits: { name: string; url: string; color: string }
   contact: {

@@ -90,6 +90,36 @@ export interface HomeStats {
   stats: StatItem[]
 }
 
+export interface HeroSlideCms {
+  description?: string
+  alt?: string
+  imageUrl?: string
+  image?: SanityImage
+}
+
+export interface HomeHero {
+  _id: string
+  badge?: string
+  titleBefore?: string
+  titleAccent?: string
+  titleAfter?: string
+  slides?: HeroSlideCms[]
+}
+
+export interface ResolvedHeroSlide {
+  src: string
+  alt: string
+  description: string
+}
+
+export interface ResolvedHomeHero {
+  badge: string
+  titleBefore: string
+  titleAccent: string
+  titleAfter: string
+  slides: ResolvedHeroSlide[]
+}
+
 export interface CompanyInfo {
   _id: string
   name: string

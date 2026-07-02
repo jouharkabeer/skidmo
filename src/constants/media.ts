@@ -1,11 +1,25 @@
-/** Curated imagery — verified Unsplash IDs (404-prone IDs removed) */
+/** Curated imagery — local hero slides + verified Unsplash IDs */
 
 const u = (id: string, w = 1920) =>
   `https://images.unsplash.com/photo-${id}?w=${w}&q=85&auto=format`
 
 export const MEDIA = {
-  hero: u('1503376780353-7e6692767b70'),
-  heroAlt: 'Paint protection film PPF and luxury car detailing in Riyadh',
+  hero: '/hero/ppf-install-1.jpg',
+  heroAlt: 'Technician applying paint protection film on a premium car at SKIDMO Riyadh',
+  heroSlides: [
+    {
+      src: '/hero/ppf-install-1.jpg',
+      alt: 'Worker applying protective transparent PPF film on a luxury car door panel',
+    },
+    {
+      src: '/hero/ppf-install-2.jpg',
+      alt: 'Technician installing anti-gravel paint protection film on a premium vehicle',
+    },
+    {
+      src: '/hero/ppf-install-3.jpg',
+      alt: 'Professional PPF installer applying protective film on a luxury car body',
+    },
+  ],
   servicesHero: u('1618843479313-40f8afb4b4d8'),
   galleryHero: u('1555215695-3004980ad54e'),
   aboutHero: u('1549317661-bd32c8ce0db2'),

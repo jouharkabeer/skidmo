@@ -9,10 +9,10 @@ export interface ContactPayload {
 }
 
 const BRAND = {
-  ink: '#0e0d0b',
-  gold: '#B8955C',
-  stone: '#f0ebe3',
-  muted: '#6b6560',
+  ink: '#0d0c0a',
+  gold: '#A66B45',
+  stone: '#ede8e1',
+  muted: '#8a8278',
   siteUrl: 'https://skidmosa.com',
 } as const
 
@@ -52,10 +52,10 @@ function buildPlainText(data: ContactPayload): string {
 function fieldRow(label: string, value: string, valueHtml?: string): string {
   return `
     <tr>
-      <td style="padding:12px 16px;border-bottom:1px solid #e8e3db;width:120px;vertical-align:top;">
+      <td style="padding:12px 16px;border-bottom:1px solid #ddd6cc;width:120px;vertical-align:top;">
         <span style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.muted};">${label}</span>
       </td>
-      <td style="padding:12px 16px;border-bottom:1px solid #e8e3db;vertical-align:top;">
+      <td style="padding:12px 16px;border-bottom:1px solid #ddd6cc;vertical-align:top;">
         <span style="font-size:15px;color:${BRAND.ink};line-height:1.5;">${valueHtml ?? escapeHtml(value)}</span>
       </td>
     </tr>`
@@ -79,8 +79,8 @@ function buildHtmlEmail(data: ContactPayload, siteUrl: string): string {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>SKIDMO Inquiry</title>
 </head>
-<body style="margin:0;padding:0;background-color:#ece8e2;font-family:Georgia,'Times New Roman',serif;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#ece8e2;padding:32px 16px;">
+<body style="margin:0;padding:0;background-color:#ebe6df;font-family:Georgia,'Times New Roman',serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#ebe6df;padding:32px 16px;">
     <tr>
       <td align="center">
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background:#ffffff;border:1px solid #ddd6cc;overflow:hidden;">
@@ -106,7 +106,7 @@ function buildHtmlEmail(data: ContactPayload, siteUrl: string): string {
 
           <tr>
             <td style="padding:8px 32px 24px;">
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:${BRAND.stone};border:1px solid #e0d9cf;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:${BRAND.stone};border:1px solid #ddd6cc;">
                 ${fieldRow('Name', data.name)}
                 ${fieldRow('Email', data.email, `<a href="mailto:${escapeHtml(data.email)}" style="color:${BRAND.ink};text-decoration:underline;">${escapeHtml(data.email)}</a>`)}
                 ${fieldRow('Phone', data.phone, `<a href="tel:${phoneDigits}" style="color:${BRAND.ink};text-decoration:underline;">${escapeHtml(data.phone)}</a>`)}
@@ -118,7 +118,7 @@ function buildHtmlEmail(data: ContactPayload, siteUrl: string): string {
           <tr>
             <td style="padding:0 32px 28px;font-family:Arial,Helvetica,sans-serif;">
               <p style="margin:0 0 10px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:${BRAND.muted};">Message</p>
-              <div style="padding:16px 18px;background:#faf9f7;border-left:3px solid ${BRAND.gold};font-size:15px;line-height:1.65;color:${BRAND.ink};">
+              <div style="padding:16px 18px;background:#faf7f3;border-left:3px solid ${BRAND.gold};font-size:15px;line-height:1.65;color:${BRAND.ink};">
                 ${messageHtml}
               </div>
             </td>
@@ -146,7 +146,7 @@ function buildHtmlEmail(data: ContactPayload, siteUrl: string): string {
           </tr>
 
           <tr>
-            <td style="padding:20px 32px;background:#faf9f7;border-top:1px solid #e8e3db;text-align:center;font-family:Arial,Helvetica,sans-serif;">
+            <td style="padding:20px 32px;background:#faf7f3;border-top:1px solid #ddd6cc;text-align:center;font-family:Arial,Helvetica,sans-serif;">
               <p style="margin:0 0 4px;font-size:12px;color:${BRAND.muted};">
                 Sent from the contact form at
                 <a href="${siteUrl}/contact" style="color:${BRAND.gold};text-decoration:none;">skidmosa.com</a>

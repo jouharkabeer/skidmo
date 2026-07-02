@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Obsidian & Stone — warm Gulf luxury */
-  --color-brand: #b8955c;
-  --color-brand-mid: #9a7b45;
-  --color-accent: #d4bc8a;
-  --color-primary: #b8955c;
-  --color-dark: #0e0d0b;
-  --color-dark-elevated: #1a1917;
-  --color-ink: #121110;
-  --color-canvas: #faf8f5;
-  --color-stone: #f0ebe3;
-  --color-stone-deep: #e5dfd4;
-  --color-text-primary: #121110;
-  --color-text-secondary: #5c5852;
-  --color-text-muted: #8a857c;
-  --color-border: #ddd8cf;
-  --color-surface: #f7f4ef;
-  --color-surface-muted: #edeae3;
+  /* Obsidian & Copper — warm Gulf luxury */
+  --color-brand: #a66b45;
+  --color-brand-mid: #8b5638;
+  --color-accent: #d4926a;
+  --color-primary: #a66b45;
+  --color-dark: #0d0c0a;
+  --color-dark-elevated: #1a1816;
+  --color-ink: #141210;
+  --color-canvas: #f7f4f0;
+  --color-stone: #ede8e1;
+  --color-stone-deep: #e0d9cf;
+  --color-text-primary: #141210;
+  --color-text-secondary: #5c564f;
+  --color-text-muted: #8a8278;
+  --color-border: #ddd6cc;
+  --color-surface: #faf7f3;
+  --color-surface-muted: #f0ebe4;
 
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-heading: "Outfit", system-ui, sans-serif;
   --font-body: "Outfit", system-ui, sans-serif;
 
-  --shadow-xs: 0 1px 2px rgba(18, 17, 16, 0.04);
-  --shadow-sm: 0 4px 16px rgba(18, 17, 16, 0.06);
-  --shadow-md: 0 12px 40px rgba(18, 17, 16, 0.08);
-  --shadow-lg: 0 24px 64px rgba(18, 17, 16, 0.1);
+  --shadow-xs: 0 1px 2px rgba(15, 15, 18, 0.04);
+  --shadow-sm: 0 4px 16px rgba(15, 15, 18, 0.06);
+  --shadow-md: 0 12px 40px rgba(15, 15, 18, 0.08);
+  --shadow-lg: 0 24px 64px rgba(15, 15, 18, 0.1);
 
   --radius-sm: 0.25rem;
   --radius-md: 0.375rem;
@@ -55,8 +55,8 @@
   }
 
   ::selection {
-    background: rgba(184, 149, 92, 0.25);
-    color: #121110;
+    background: rgba(166, 107, 69, 0.22);
+    color: var(--color-ink);
   }
 }
 
@@ -70,26 +70,26 @@
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #d4bc8a 0%, #b8955c 50%, #9a7b45 100%);
+    background: linear-gradient(135deg, #d4926a 0%, #a66b45 50%, #8b5638 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .bg-brand-gradient {
-    background: linear-gradient(135deg, #d4bc8a 0%, #b8955c 100%);
+    background: linear-gradient(135deg, #d4926a 0%, #a66b45 100%);
   }
 
   .bg-ink {
-    background: #0e0d0b;
+    background: var(--color-dark);
   }
 
   .bg-canvas {
-    background: #faf8f5;
+    background: var(--color-canvas);
   }
 
   .bg-stone {
-    background: #f0ebe3;
+    background: var(--color-stone);
   }
 
   .section-padding {
@@ -121,7 +121,7 @@
   }
 
   .input-field {
-    @apply mt-1.5 w-full rounded-sm border border-border bg-white px-4 py-3 text-sm text-ink placeholder:text-text-muted transition-colors focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
+    @apply mt-1.5 w-full rounded-sm border border-border bg-surface px-4 py-3 text-sm text-ink placeholder:text-text-muted transition-colors focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
   }
 
   .input-field--error {
@@ -142,21 +142,32 @@
   }
 
   .dark-gradient {
-    background: linear-gradient(180deg, #0e0d0b 0%, #1a1917 100%);
+    background: linear-gradient(180deg, var(--color-dark) 0%, var(--color-dark-elevated) 100%);
   }
 
   .hero-gradient {
+    pointer-events: none;
     background: linear-gradient(
       180deg,
-      rgba(14, 13, 11, 0.15) 0%,
-      rgba(14, 13, 11, 0.55) 45%,
-      rgba(14, 13, 11, 0.94) 100%
+      rgba(13, 12, 10, 0.15) 0%,
+      rgba(13, 12, 10, 0.55) 45%,
+      rgba(13, 12, 10, 0.94) 100%
+    );
+  }
+
+  .hero-overlay {
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(13, 12, 10, 0.18) 0%,
+      rgba(13, 12, 10, 0.34) 45%,
+      rgba(13, 12, 10, 0.52) 100%
     );
   }
 
   .nav-glass {
-    background: rgba(250, 248, 245, 0.88);
-    border-bottom: 1px solid rgba(221, 216, 207, 0.8);
+    background: rgba(247, 244, 240, 0.92);
+    border-bottom: 1px solid rgba(221, 214, 204, 0.9);
     backdrop-filter: blur(16px);
   }
 
@@ -166,25 +177,25 @@
   }
 
   .card-luxe {
-    @apply overflow-hidden border border-border bg-white transition-all duration-300;
-    box-shadow: 0 1px 0 rgba(18, 17, 16, 0.04);
+    @apply overflow-hidden border border-border bg-surface transition-all duration-300;
+    box-shadow: 0 1px 0 rgba(20, 18, 16, 0.04);
     border-radius: 0.125rem;
   }
 
   .card-luxe:hover {
     box-shadow: var(--shadow-md);
-    border-color: #cfc8bc;
+    border-color: #cfc6b8;
   }
 
   .card-pro {
-    @apply overflow-hidden border border-border bg-white transition-all duration-300;
-    box-shadow: 0 1px 0 rgba(18, 17, 16, 0.04);
+    @apply overflow-hidden border border-border bg-surface transition-all duration-300;
+    box-shadow: 0 1px 0 rgba(20, 18, 16, 0.04);
     border-radius: 0.125rem;
   }
 
   .card-pro:hover {
     box-shadow: var(--shadow-md);
-    border-color: #cfc8bc;
+    border-color: #cfc6b8;
   }
 
   .divider {
@@ -201,7 +212,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f0ebe3;
+  background: var(--color-stone);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -210,7 +221,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b8955c;
+  background: var(--color-brand);
 }
 
 .elfsight-reviews-widget {
