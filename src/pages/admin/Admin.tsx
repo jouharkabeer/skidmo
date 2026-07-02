@@ -318,7 +318,7 @@ export default function Admin() {
               <h2>Content Management</h2>
               <p>Manage gallery, offers, testimonials, and homepage stats for the SKIDMO website — built for your Riyadh studio.</p>
             </div>
-            <p className="text-xs text-white/30">SKIDMO · Premium Automotive Protection</p>
+            <p className="text-xs text-white/30">SKIDMO — a venture by Colmo</p>
           </div>
           <div className="admin-login-panel">
             <div className="admin__card">

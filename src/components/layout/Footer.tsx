@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, Clock } from 'lucide-react'
 import { FaInstagram, FaXTwitter } from 'react-icons/fa6'
-import { CONTACT, WORKING_HOURS, SOCIAL_LINKS, FOOTER_LINKS, PARENT_COMPANY, SITE_CREDITS } from '@/constants'
+import { CONTACT, WORKING_HOURS, SOCIAL_LINKS, FOOTER_LINKS, PARENT_COMPANY, SITE_CREDITS, SITE_TAGLINE } from '@/constants'
 import { SERVICES_DATA } from '@/constants/services'
 import { Logo } from '@/components/ui/Logo'
 import { MapLinkCard } from '@/components/common/MapLinkCard'
@@ -17,18 +17,21 @@ export function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
               <Logo variant="letter" imgClassName="h-6" />
               <p className="mt-4 text-xs leading-relaxed text-white/45">
-                Premium protection &amp; detailing in Riyadh.
-              </p>
-              <p className="mt-3 text-xs leading-relaxed text-white/40">
-                A brand of{' '}
-                <a
-                  href={PARENT_COMPANY.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent transition-colors hover:text-white"
-                >
-                  {PARENT_COMPANY.name}
-                </a>
+                {SITE_TAGLINE.endsWith('Colmo') ? (
+                  <>
+                    {SITE_TAGLINE.slice(0, -5)}
+                    <a
+                      href={PARENT_COMPANY.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent transition-colors hover:text-white"
+                    >
+                      Colmo
+                    </a>
+                  </>
+                ) : (
+                  SITE_TAGLINE
+                )}
               </p>
               <div className="mt-4 flex gap-2">
                 {[SOCIAL_LINKS.instagram, SOCIAL_LINKS.twitter].map((url, i) => (
@@ -108,15 +111,21 @@ export function Footer() {
             <div className="space-y-1 lg:text-left">
               <p>© {year} SKIDMO. All rights reserved.</p>
               <p>
-                Part of{' '}
-                <a
-                  href={PARENT_COMPANY.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/55 transition-colors hover:text-accent"
-                >
-                  {PARENT_COMPANY.name}
-                </a>
+                {SITE_TAGLINE.endsWith('Colmo') ? (
+                  <>
+                    {SITE_TAGLINE.slice(0, -5)}
+                    <a
+                      href={PARENT_COMPANY.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/55 transition-colors hover:text-accent"
+                    >
+                      Colmo
+                    </a>
+                  </>
+                ) : (
+                  SITE_TAGLINE
+                )}
               </p>
             </div>
 

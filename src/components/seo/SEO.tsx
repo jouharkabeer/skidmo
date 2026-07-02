@@ -143,6 +143,7 @@ export function getDefaultStructuredData() {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: SITE_NAME,
+      alternateName: ['SKIDMO KSA', 'SKIDMO Saudi Arabia', 'skidmosa.com'],
       url: SITE_URL,
       logo: absoluteUrl('/og-image.png'),
       description: SITE_DESCRIPTION,
@@ -156,7 +157,7 @@ export function getDefaultStructuredData() {
     {
       '@context': 'https://schema.org',
       '@type': 'AutoRepair',
-      name: `${SITE_NAME} — PPF & Paint Protection Film Riyadh`,
+      name: `${SITE_NAME} KSA — PPF & Paint Protection Film Riyadh`,
       image: OG_IMAGE_URL,
       '@id': SITE_URL,
       url: SITE_URL,

@@ -2,6 +2,11 @@ import { SITE_URL } from '@/constants'
 
 /** Primary SEO keywords — PPF / paint protection film Riyadh focus */
 export const SEO_KEYWORDS = [
+  'SKIDMO KSA',
+  'SKIDMO Saudi Arabia',
+  'SKIDMO Riyadh',
+  'skidmo ksa',
+  'skidmosa',
   'Colmo PPF',
   'Colmo PPF Riyadh',
   'Colmo Ventures PPF',
@@ -44,9 +49,9 @@ export interface PageSEO {
 
 export const HOME_SEO: PageSEO = {
   path: '/',
-  title: 'Colmo PPF & Paint Protection Film in Riyadh',
+  title: 'SKIDMO KSA — Colmo PPF & Paint Protection Film Riyadh',
   description:
-    'SKIDMO by Colmo Ventures — Riyadh\'s premium Colmo PPF studio for paint protection film, ceramic coating, window tint, paint correction & luxury car detailing. XPEL & STEK certified. Book your consultation.',
+    'SKIDMO KSA by Colmo Ventures — Saudi Arabia\'s premium Colmo PPF studio in Riyadh for paint protection film, ceramic coating, window tint, paint correction & luxury car detailing. XPEL & STEK certified.',
   keywords: SEO_KEYWORDS as unknown as string[],
 }
 
@@ -125,6 +130,6 @@ export function buildCanonical(path: string): string {
 }
 
 export function buildFullTitle(pageTitle?: string, siteName = 'SKIDMO'): string {
-  if (!pageTitle) return `${siteName} — Colmo PPF & Paint Protection Film in Riyadh`
+  if (!pageTitle) return `${siteName} KSA — Colmo PPF & Paint Protection Film Riyadh`
   return `${pageTitle} | ${siteName}`
 }

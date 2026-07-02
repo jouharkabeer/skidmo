@@ -8,10 +8,10 @@ import { seoPrerenderPlugin } from './plugins/seoPrerender.ts'
 const PRERENDER_PAGES = [
   {
     path: '/',
-    title: 'SKIDMO — Colmo PPF & Paint Protection Film in Riyadh',
+    title: 'SKIDMO KSA — Colmo PPF & Paint Protection Film Riyadh',
     description:
-      "SKIDMO by Colmo Ventures — Riyadh's premium Colmo PPF studio for paint protection film, ceramic coating, window tint, paint correction & luxury car detailing. XPEL & STEK certified.",
-    keywords: 'Colmo PPF, Colmo PPF Riyadh, PPF Riyadh, paint protection film Riyadh, ceramic coating Riyadh, SKIDMO',
+      "SKIDMO KSA by Colmo Ventures — Saudi Arabia's premium Colmo PPF studio in Riyadh for paint protection film, ceramic coating, window tint, paint correction & luxury car detailing. XPEL & STEK certified.",
+    keywords: 'SKIDMO KSA, SKIDMO Saudi Arabia, skidmo ksa, Colmo PPF, Colmo PPF Riyadh, PPF Riyadh, paint protection film Riyadh, ceramic coating Riyadh, SKIDMO',
   },
   {
     path: '/about',

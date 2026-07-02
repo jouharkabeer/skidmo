@@ -196,7 +196,7 @@ export const MOCK_FAQS: FAQ[] = SITE_FAQS
 export const MOCK_COMPANY_INFO: CompanyInfo = {
   _id: 'c1',
   name: 'SKIDMO',
-  tagline: 'Protect What Moves You',
+  tagline: 'SKIDMO — a venture by Colmo',
   about:
     'Founded in Riyadh with a singular vision — to bring world-class automotive protection to Saudi Arabia\'s discerning car enthusiasts. SKIDMO was born from a passion for precision and an uncompromising standard of excellence. What started as a boutique detailing studio has evolved into the region\'s most trusted name in paint protection, ceramic coating, and luxury vehicle care.',
   mission:

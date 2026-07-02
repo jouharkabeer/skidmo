@@ -88,7 +88,7 @@ function buildHtmlEmail(data: ContactPayload, siteUrl: string): string {
           <tr>
             <td style="background:${BRAND.ink};padding:28px 32px;text-align:center;">
               <p style="margin:0 0 6px;font-size:28px;font-weight:700;letter-spacing:0.18em;color:#ffffff;font-family:Arial,Helvetica,sans-serif;">SKIDMO</p>
-              <p style="margin:0;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${BRAND.gold};font-family:Arial,Helvetica,sans-serif;">Premium Automotive Protection · Riyadh</p>
+              <p style="margin:0;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:${BRAND.gold};font-family:Arial,Helvetica,sans-serif;">SKIDMO — a venture by Colmo</p>
             </td>
           </tr>
 
@@ -151,7 +151,7 @@ function buildHtmlEmail(data: ContactPayload, siteUrl: string): string {
                 Sent from the contact form at
                 <a href="${siteUrl}/contact" style="color:${BRAND.gold};text-decoration:none;">skidmosa.com</a>
               </p>
-              <p style="margin:0;font-size:11px;color:#a39e97;">A brand of Colmo Ventures</p>
+              <p style="margin:0;font-size:11px;color:#a39e97;">SKIDMO — a venture by Colmo</p>
             </td>
           </tr>
 
