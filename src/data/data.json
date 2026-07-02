@@ -23,7 +23,7 @@
     "coordinates": { "lat": 24.7136, "lng": 46.6753 }
   },
   "workingHours": [
-    { "day": "Saturday – Friday", "hours": "12:00 PM – 11:00 PM" },
+    { "day": "Saturday – Friday", "hours": "12:00 PM – 11:00 PM" }
   ],
   "social": {
     "instagram": "https://instagram.com/skidmo",
