@@ -7,7 +7,7 @@ import { WhyChooseUsSection } from '@/sections/home/WhyChooseUsSection'
 import { GalleryPreviewSection } from '@/sections/home/GalleryPreviewSection'
 import { OffersPreviewSection } from '@/sections/home/OffersPreviewSection'
 import { TestimonialsSection } from '@/sections/home/TestimonialsSection'
-import { GoogleReviewsSection } from '@/sections/home/GoogleReviewsSection'
+// import { GoogleReviewsSection } from '@/sections/home/GoogleReviewsSection'
 import { FAQPreviewSection } from '@/sections/home/FAQPreviewSection'
 
 export default function HomePage() {
