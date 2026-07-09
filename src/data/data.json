@@ -38,7 +38,7 @@
   },
   "contact": {
     "phone": "+966 9200 17582",
-    "whatsapp": "+966920017582",
+    "whatsapp": "+966557366098",
     "email": "skidmoksa@gmail.com",
     "address": " Umar bin abdulaziz, Ar Rabwah, Riyadh 12824, Saudi Arabia",
     "addressShort": "Ar Rabwah, Riyadh",
@@ -279,54 +279,7 @@
       ],
       "icon": "sun"
     },
-    {
-      "slug": "paint-correction",
-      "title": "Paint Correction",
-      "shortTitle": "Correction",
-      "tagline": "Restore factory perfection",
-      "description": "Eliminate swirl marks, holograms, water spots, and oxidation with our multi-stage paint correction process. Using Rupes and Flex polishers with premium compounds, we restore depth, clarity, and reflection to tired paint before protection application.",
-      "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80",
-      "heroImage": "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1600&q=80",
-      "benefits": [
-        "Removes years of wash-induced swirl marks",
-        "Restores deep gloss and color vibrancy",
-        "Essential preparation before PPF or ceramic",
-        "Multi-stage correction for varying paint conditions",
-        "Paint depth measurement and documentation"
-      ],
-      "features": [
-        "Single-stage enhancement polish",
-        "Two-stage correction for moderate defects",
-        "Multi-stage full correction",
-        "Headlight restoration",
-        "Paint depth gauge analysis"
-      ],
-      "icon": "gem"
-    },
-    {
-      "slug": "car-wash",
-      "title": "Premium Car Wash",
-      "shortTitle": "Wash",
-      "tagline": "Beyond ordinary cleaning",
-      "description": "Our signature hand wash uses the two-bucket method, pH-neutral shampoos, and microfiber technology to clean without inducing swirls. Every wash includes wheel detailing, tire dressing, and interior vacuum — the foundation of proper vehicle care.",
-      "image": "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80",
-      "heroImage": "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1600&q=80",
-      "benefits": [
-        "Swirl-free hand wash technique",
-        "Safe for ceramic-coated and PPF vehicles",
-        "Wheel and arch deep cleaning",
-        "Streak-free glass cleaning",
-        "Quick turnaround for busy schedules"
-      ],
-      "features": [
-        "Express exterior wash",
-        "Full detail wash with decontamination",
-        "Engine bay cleaning",
-        "Undercarriage rinse",
-        "Monthly maintenance memberships"
-      ],
-      "icon": "droplets"
-    },
+
     {
       "slug": "interior-detailing",
       "title": "Interior Detailing",

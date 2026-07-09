@@ -21,7 +21,7 @@ export default function HomePage() {
       <GalleryPreviewSection />
       <OffersPreviewSection />
       <TestimonialsSection />
-      <GoogleReviewsSection />
+      {/* <GoogleReviewsSection /> */}
       <FAQPreviewSection />
     </>
   )

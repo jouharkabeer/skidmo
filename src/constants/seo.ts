@@ -2,6 +2,9 @@ import { SITE_URL } from '@/constants'
 
 /** Primary SEO keywords — PPF / paint protection film Riyadh focus */
 export const SEO_KEYWORDS = [
+  'SKidmo',
+  'Colmo Ventures',
+  'SKIDMO',
   'SKIDMO KSA',
   'SKIDMO Saudi Arabia',
   'SKIDMO Riyadh',
