@@ -1,0 +1,14 @@
+/api/contact  /.netlify/functions/contact  200
+
+# Prerendered pages — serve directly (avoids 301 trailing-slash redirect for Google)
+/about     /about/index.html     200
+/services  /services/index.html  200
+/gallery   /gallery/index.html   200
+/offers    /offers/index.html    200
+/faq       /faq/index.html       200
+/contact   /contact/index.html   200
+/warranty  /warranty/index.html  200
+/terms     /terms/index.html     200
+/privacy   /privacy/index.html   200
+
+/*    /index.html   200

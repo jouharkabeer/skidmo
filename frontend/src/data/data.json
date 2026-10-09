@@ -1,0 +1,396 @@
+{
+  "site": {
+    "name": "SKIDMO",
+    "tagline": "SKIDMO — a venture by Colmo",
+    "description": "SKIDMO — a venture by Colmo. Saudi Arabia's premium Colmo PPF studio in Riyadh for paint protection film, ceramic coating, window tinting, paint correction & luxury car detailing. XPEL & STEK certified installers."
+  },
+  "hero": {
+    "badge": "Riyadh, Saudi Arabia",
+    "titleBefore": "The Art of",
+    "titleAccent": "Automotive",
+    "titleAfter": "Protection",
+    "slides": [
+      {
+        "src": "/hero/ppf-install-1.jpg",
+        "alt": "Worker applying protective transparent PPF film on a luxury car door panel",
+        "description": "Expert paint protection film (PPF), ceramic coating, and luxury car detailing in Riyadh — XPEL & STEK certified for discerning owners across Saudi Arabia."
+      },
+      {
+        "src": "/hero/ppf-install-2.jpg",
+        "alt": "Technician installing anti-gravel paint protection film on a premium vehicle",
+        "description": "Precision anti-gravel PPF installation — shielding premium paint from stone chips, road debris, and Saudi desert conditions."
+      },
+      {
+        "src": "/hero/ppf-install-3.jpg",
+        "alt": "Professional PPF installer applying protective film on a luxury car body",
+        "description": "Hand-finished protection for luxury and exotic vehicles — trusted by Riyadh's most discerning automotive owners."
+      }
+    ]
+  },
+  "parentCompany": {
+    "name": "Colmo Ventures",
+    "url": "https://colmogrp.com/"
+  },
+  "credits": {
+    "name": "Lsofito Innovations",
+    "url": "https://lsofito.com",
+    "color": "#41287b"
+  },
+  "contact": {
+    "phone": "9200 17582",
+    "whatsapp": "+966557366098",
+    "email": "skidmoksa@gmail.com",
+    "address": " Umar bin abdulaziz, Ar Rabwah, Riyadh 12824, Saudi Arabia",
+    "addressShort": "Ar Rabwah, Riyadh",
+    "mapUrl": "https://maps.app.goo.gl/JqNcy6PidJuKW8beA",
+    "coordinates": { "lat": 24.7136, "lng": 46.6753 }
+  },
+  "workingHours": [
+    { "day": "Saturday – Friday", "hours": "12:00 PM – 11:00 PM" }
+  ],
+  "social": {
+    "instagram": "https://instagram.com/skidmo.c",
+    "twitter": "https://twitter.com/skidmo",
+    "tiktok": "https://tiktok.com/@skidmo",
+    "snapchat": "https://snapchat.com/add/skidmo",
+    "google": "https://g.page/skidmo"
+  },
+  "nav": [
+    { "label": "Home", "path": "/" },
+    { "label": "About", "path": "/about" },
+    { "label": "Services", "path": "/services", "hasMegaMenu": true },
+    { "label": "Gallery", "path": "/gallery" },
+    { "label": "Offers", "path": "/offers" },
+    { "label": "Warranty", "path": "/warranty" },
+    { "label": "Contact", "path": "/contact" }
+  ],
+  "footerLinks": [
+    { "label": "Home", "path": "/" },
+    { "label": "About", "path": "/about" },
+    { "label": "Services", "path": "/services" },
+    { "label": "Gallery", "path": "/gallery" },
+    { "label": "Offers", "path": "/offers" },
+    { "label": "FAQ", "path": "/faq" },
+    { "label": "Warranty", "path": "/warranty" },
+    { "label": "Contact", "path": "/contact" }
+  ],
+  "whyChooseUs": [
+    {
+      "icon": "shield",
+      "title": "Premium Products",
+      "description": "We exclusively use XPEL, STEK, 3M, and Gtechniq — the same protection trusted by supercar manufacturers worldwide."
+    },
+    {
+      "icon": "award",
+      "title": "Certified Installers",
+      "description": "Our technicians hold factory certifications and undergo continuous training to deliver flawless, invisible installations."
+    },
+    {
+      "icon": "badge-check",
+      "title": "Warranty Backed",
+      "description": "Every PPF and ceramic coating installation comes with comprehensive warranty coverage for complete peace of mind."
+    },
+    {
+      "icon": "zap",
+      "title": "Fast Turnaround",
+      "description": "Efficient workflows and dedicated bays mean your vehicle receives premium care without unnecessary downtime."
+    },
+    {
+      "icon": "users",
+      "title": "Professional Team",
+      "description": "A passionate team of automotive enthusiasts who treat every vehicle — from daily drivers to exotics — with equal precision."
+    }
+  ],
+  "faqs": [
+    {
+      "id": "f1",
+      "question": "What is Paint Protection Film (PPF) and do I need it in Riyadh?",
+      "answer": "PPF is a transparent polyurethane film applied to your vehicle's painted surfaces. In Riyadh's harsh climate — with sand, highway debris, and intense UV — PPF is essential for preserving your paint. It self-heals minor scratches and prevents rock chips that would otherwise require expensive repainting.",
+      "category": "PPF",
+      "order": 1
+    },
+    {
+      "id": "f2",
+      "question": "How long does ceramic coating last?",
+      "answer": "Depending on the product and package, our ceramic coatings last between 3 to 9 years. Gtechniq Crystal Serum Ultra, our flagship coating, provides up to 9 years of protection with proper maintenance. We offer annual inspection services to maximize coating longevity.",
+      "category": "Ceramic",
+      "order": 2
+    },
+    {
+      "id": "f3",
+      "question": "Is window tinting legal in Saudi Arabia?",
+      "answer": "Yes, window tinting is permitted within specific Visible Light Transmission (VLT) limits set by Saudi regulations. We guide you through compliant options that maximize heat rejection and privacy while meeting legal requirements.",
+      "category": "Tint",
+      "order": 3
+    },
+    {
+      "id": "f4",
+      "question": "How long does a full PPF installation take?",
+      "answer": "A full front package typically takes 1–2 days. Full body coverage can take 3–5 days depending on vehicle complexity. We provide a detailed timeline during consultation and keep you updated throughout the process.",
+      "category": "General",
+      "order": 4
+    },
+    {
+      "id": "f5",
+      "question": "Do you offer warranty on your services?",
+      "answer": "Absolutely. All PPF installations include manufacturer warranty (up to 10 years). Ceramic coatings carry product-specific warranties. Our workmanship is also guaranteed — if you're not satisfied, we'll make it right.",
+      "category": "Warranty",
+      "order": 5
+    },
+    {
+      "id": "f6",
+      "question": "Can I wash my car normally after PPF or ceramic coating?",
+      "answer": "We recommend waiting 7 days before the first wash after installation. After that, hand washing with pH-neutral shampoo is ideal. Avoid automatic brush car washes. We offer maintenance wash packages designed for protected vehicles.",
+      "category": "Care",
+      "order": 6
+    },
+    {
+      "id": "f7",
+      "question": "How much does PPF cost in Riyadh?",
+      "answer": "Pricing depends on vehicle size, film brand, and coverage area (front package vs full body). Front-end protection typically starts from a few thousand SAR; full-body installations on luxury vehicles are quoted individually. Contact us for a free inspection and tailored quote.",
+      "category": "PPF",
+      "order": 7
+    },
+    {
+      "id": "f8",
+      "question": "What is the difference between ceramic coating and wax?",
+      "answer": "Wax sits on top of the paint and lasts weeks. Ceramic coating chemically bonds to the surface, creating a hard, hydrophobic layer that lasts years. Coating delivers deeper gloss, better UV resistance, and far easier maintenance in Riyadh's heat and dust.",
+      "category": "Ceramic",
+      "order": 8
+    },
+    {
+      "id": "f9",
+      "question": "Do you work on luxury and exotic vehicles?",
+      "answer": "Yes. Our studio regularly handles supercars, luxury SUVs, and collector vehicles. We use precision-cut patterns, climate-controlled bays, and factory-certified films to protect high-value paint without compromising appearance.",
+      "category": "General",
+      "order": 9
+    },
+    {
+      "id": "f10",
+      "question": "Do I need an appointment?",
+      "answer": "Walk-ins are welcome for basic services when availability allows, but we recommend booking ahead for PPF, ceramic coating, correction, and full details. Appointments ensure dedicated bay time and the best turnaround for your schedule.",
+      "category": "General",
+      "order": 10
+    },
+    {
+      "id": "f11",
+      "question": "Should I get paint correction before PPF or ceramic coating?",
+      "answer": "Yes — for best results we recommend correction first. PPF and ceramic coating lock in whatever condition the paint is in at application time. Correction removes swirls and defects so your protection starts from a flawless base.",
+      "category": "Correction",
+      "order": 11
+    },
+    {
+      "id": "f12",
+      "question": "Can PPF be removed without damaging my paint?",
+      "answer": "When professionally removed, quality PPF comes off cleanly without harming factory paint. We use controlled heat and proper technique. Avoid DIY removal — improper peeling can pull clear coat or leave adhesive residue.",
+      "category": "PPF",
+      "order": 12
+    },
+    {
+      "id": "f13",
+      "question": "How do I maintain ceramic coating in Riyadh's heat and dust?",
+      "answer": "Rinse dust regularly, wash with pH-neutral shampoo every 1–2 weeks, and avoid harsh chemicals or brush washes. Annual maintenance inspections help us top up hydrophobic properties and catch any early issues before they spread.",
+      "category": "Care",
+      "order": 13
+    },
+    {
+      "id": "f14",
+      "question": "What payment methods do you accept?",
+      "answer": "We accept cash, bank transfer, and major credit/debit cards. For larger packages such as full-body PPF, a deposit may be required when booking. Full pricing is confirmed in writing before work begins.",
+      "category": "General",
+      "order": 14
+    },
+    {
+      "id": "f15",
+      "question": "Do you offer pickup and delivery in Riyadh?",
+      "answer": "Pickup and delivery can be arranged for select services within Riyadh, subject to availability and vehicle type. Mention this when booking and our team will confirm options and any associated fees.",
+      "category": "General",
+      "order": 15
+    }
+  ],
+  "services": [
+    {
+      "slug": "ppf",
+      "title": "Paint Protection Film",
+      "shortTitle": "PPF",
+      "tagline": "Invisible armor for your paint",
+      "description": "Our premium Paint Protection Film shields your vehicle from rock chips, road debris, insect acids, and environmental contaminants. Using self-healing XPEL and STEK films, we create an virtually invisible barrier that preserves your factory finish and resale value for years to come.",
+      "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80",
+      "heroImage": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80",
+      "benefits": [
+        "Self-healing technology repairs minor scratches with heat",
+        "UV-resistant film prevents yellowing and paint fading",
+        "Maintains showroom gloss with hydrophobic top coat",
+        "Preserves resale value by protecting original paint",
+        "Virtually invisible when professionally installed"
+      ],
+      "features": [
+        "Full front package (hood, fenders, bumper, mirrors)",
+        "Full body coverage options",
+        "Track package for high-impact areas",
+        "Custom patterns for exotic and classic vehicles",
+        "10-year manufacturer warranty"
+      ],
+      "icon": "shield"
+    },
+    {
+      "slug": "ceramic-coating",
+      "title": "Ceramic Coating",
+      "shortTitle": "Ceramic",
+      "tagline": "Liquid glass protection",
+      "description": "Transform your paint with professional-grade ceramic coating that bonds at a molecular level. Our Gtechniq and Ceramic Pro applications deliver extreme gloss, hydrophobic water beading, and long-lasting protection against chemicals, bird droppings, and UV damage.",
+      "image": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
+      "heroImage": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1600&q=85&auto=format",
+      "benefits": [
+        "9H hardness rating for superior scratch resistance",
+        "Extreme hydrophobic properties for effortless washing",
+        "Deep, wet-look gloss enhancement",
+        "Chemical and contaminant resistance",
+        "Multi-year durability with proper maintenance"
+      ],
+      "features": [
+        "Single and multi-layer packages",
+        "Wheel and caliper coating",
+        "Glass and windshield treatment",
+        "Interior leather and fabric protection",
+        "Annual maintenance programs"
+      ],
+      "icon": "sparkles"
+    },
+    {
+      "slug": "window-tint",
+      "title": "Window Tinting",
+      "shortTitle": "Tint",
+      "tagline": "Privacy, comfort, protection",
+      "description": "Premium ceramic window films that reject up to 99% of harmful UV rays while reducing interior heat by up to 60%. Our precision-cut installations comply with Saudi regulations while delivering a refined, factory-quality appearance.",
+      "image": "https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80",
+      "heroImage": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1600&q=80",
+      "benefits": [
+        "Blocks 99% of UV radiation",
+        "Significant heat reduction for cabin comfort",
+        "Enhanced privacy without compromising visibility",
+        "Reduces glare for safer driving",
+        "Protects interior materials from sun damage"
+      ],
+      "features": [
+        "Ceramic and carbon film options",
+        "Computer-precision cutting",
+        "Windshield strip tinting",
+        "Regulation-compliant VLT options",
+        "Lifetime warranty on premium films"
+      ],
+      "icon": "sun"
+    },
+
+    {
+      "slug": "interior-detailing",
+      "title": "Interior Detailing",
+      "shortTitle": "Interior",
+      "tagline": "Sanctuary-level cleanliness",
+      "description": "Restore your cabin to showroom condition with our comprehensive interior detailing. From leather conditioning and steam cleaning to odor elimination and fabric protection, we rejuvenate every surface you touch.",
+      "image": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80",
+      "heroImage": "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1600&q=80",
+      "benefits": [
+        "Deep extraction for carpets and upholstery",
+        "Leather cleaning, conditioning, and protection",
+        "Ozone treatment for odor elimination",
+        "Dashboard and trim restoration",
+        "Air vent and crevice detailing"
+      ],
+      "features": [
+        "Standard interior detail",
+        "Premium full interior restoration",
+        "Leather repair and dye services",
+        "Headliner cleaning",
+        "Child seat area sanitization"
+      ],
+      "icon": "armchair"
+    }
+  ],
+  "legal": {
+    "terms": {
+      "title": "Terms & Conditions",
+      "lastUpdated": "January 2026",
+      "sections": [
+        {
+          "heading": "Services",
+          "paragraphs": [
+            "SKIDMO provides automotive detailing, paint protection film (PPF), ceramic coating, window tinting, and related services at our Riyadh studio. All work is performed subject to vehicle inspection and written or confirmed quotation."
+          ]
+        },
+        {
+          "heading": "Bookings & Deposits",
+          "paragraphs": [
+            "Appointments may require a deposit for large packages. Deposits are applied to your final invoice. Cancellations with less than 24 hours notice may forfeit the deposit at our discretion."
+          ]
+        },
+        {
+          "heading": "Warranties",
+          "paragraphs": [
+            "Product warranties are provided by manufacturers (e.g. XPEL, STEK, Gtechniq) and are subject to their terms. Workmanship warranties cover installation defects when care guidelines are followed. Warranty claims require proof of maintenance where applicable."
+          ]
+        },
+        {
+          "heading": "Vehicle Condition & Liability",
+          "paragraphs": [
+            "We document vehicle condition on intake. SKIDMO is not liable for pre-existing damage, manufacturing defects, or issues unrelated to our work. Customers are responsible for removing personal items before service."
+          ]
+        },
+        {
+          "heading": "Payment",
+          "paragraphs": [
+            "Payment is due upon completion unless otherwise agreed. Prices are quoted in Saudi Riyals (SAR). We accept cash, bank transfer, and major cards where available."
+          ]
+        },
+        {
+          "heading": "Governing Law",
+          "paragraphs": [
+            "These terms are governed by the laws of the Kingdom of Saudi Arabia. Disputes shall be resolved in the courts of Riyadh."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "January 2026",
+      "sections": [
+        {
+          "heading": "Information We Collect",
+          "paragraphs": [
+            "We collect information you provide when booking or contacting us — such as name, phone number, email, vehicle details, and messages submitted through our contact form."
+          ]
+        },
+        {
+          "heading": "How We Use Your Information",
+          "paragraphs": [
+            "We use your information to respond to enquiries, schedule services, send confirmations, improve our offerings, and comply with legal obligations. We do not sell your personal data."
+          ]
+        },
+        {
+          "heading": "Cookies & Analytics",
+          "paragraphs": [
+            "Our website may use cookies to remember preferences and measure site performance. You can control cookies through your browser settings and our cookie consent banner."
+          ]
+        },
+        {
+          "heading": "Third Parties",
+          "paragraphs": [
+            "We may share data with service providers who assist our operations (e.g. email delivery, maps, review widgets) under confidentiality obligations. Links to third-party sites are governed by their own policies."
+          ]
+        },
+        {
+          "heading": "Data Retention & Security",
+          "paragraphs": [
+            "We retain contact records as needed for business and legal purposes. We implement reasonable measures to protect your information but cannot guarantee absolute security over the internet."
+          ]
+        },
+        {
+          "heading": "Your Rights & Contact",
+          "paragraphs": [
+            "You may request access, correction, or deletion of your personal data by contacting us at skidmoksa@gmail.com. We may update this policy periodically; continued use of our services constitutes acceptance of changes."
+          ]
+        }
+      ]
+    }
+  }
+}
