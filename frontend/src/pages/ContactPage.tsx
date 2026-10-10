@@ -66,6 +66,42 @@ export default function ContactPage() {
     }
   }
 
+
+  const handleWhatsAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (
+      !form.name.trim() ||
+      !form.email.trim() ||
+      !form.phone.trim() ||
+      !form.service ||
+      !form.message.trim()
+    ) {
+      setSubmitError("Please fill in all required fields.");
+      return;
+    }
+
+    const whatsappNumber = CONTACT.whatsapp.replace('+', ''); // Replace with your WhatsApp number
+
+    const message = `New Contact Form Submission
+
+  Name: ${form.name}
+  Email: ${form.email}
+  Phone: ${form.phone}
+  Service: ${form.service}
+
+  Message:
+  ${form.message}`;
+
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
+  };
+
+
+
+
+
   return (
     <>
       <PageSEO
@@ -184,7 +220,7 @@ export default function ContactPage() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} noValidate aria-label="Contact form">
+                  <form onSubmit={handleWhatsAppSubmit} noValidate aria-label="Contact form">
                     <h2 className="font-heading text-xl font-semibold text-ink">Send Us a Message</h2>
                     <p className="mt-2 text-sm text-ink/70">
                       Fill out the form below and we&apos;ll respond promptly.
