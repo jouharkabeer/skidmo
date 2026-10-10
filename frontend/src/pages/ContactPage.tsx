@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useState} from 'react'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa6'
 import type { ContactFormData, ContactFormErrors } from '@/types'
@@ -8,25 +8,25 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { FadeIn } from '@/components/ui/FadeIn'
 import { Button } from '@/components/ui/Button'
 import { MapLinkCard } from '@/components/common/MapLinkCard'
-import { submitContactForm } from '@/services/contactService'
+// import { submitContactForm } from '@/services/contactService'
 import { CONTACT, CONTACT_FORM_ID, WORKING_HOURS } from '@/constants'
 import { MEDIA } from '@/constants/media'
 import { SERVICES_DATA } from '@/constants/services'
 import { cn } from '@/utils'
 
-function validateForm(data: ContactFormData): ContactFormErrors {
-  const errors: ContactFormErrors = {}
-  if (!data.name.trim()) errors.name = 'Name is required'
-  if (!data.email.trim()) {
-    errors.email = 'Email is required'
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    errors.email = 'Please enter a valid email'
-  }
-  if (!data.phone.trim()) errors.phone = 'Phone number is required'
-  if (!data.service) errors.service = 'Please select a service'
-  if (!data.message.trim()) errors.message = 'Message is required'
-  return errors
-}
+// function validateForm(data: ContactFormData): ContactFormErrors {
+//   const errors: ContactFormErrors = {}
+//   if (!data.name.trim()) errors.name = 'Name is required'
+//   if (!data.email.trim()) {
+//     errors.email = 'Email is required'
+//   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+//     errors.email = 'Please enter a valid email'
+//   }
+//   if (!data.phone.trim()) errors.phone = 'Phone number is required'
+//   if (!data.service) errors.service = 'Please select a service'
+//   if (!data.message.trim()) errors.message = 'Message is required'
+//   return errors
+// }
 
 export default function ContactPage() {
   const [form, setForm] = useState<ContactFormData>({
@@ -37,27 +37,27 @@ export default function ContactPage() {
     message: '',
   })
   const [errors, setErrors] = useState<ContactFormErrors>({})
-  const [submitted, setSubmitted] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [submitted] = useState(false)
+  const [loading] = useState(false)
   const [submitError, setSubmitError] = useState('')
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    setSubmitError('')
-    const validationErrors = validateForm(form)
-    setErrors(validationErrors)
-    if (Object.keys(validationErrors).length > 0) return
+  // const handleSubmit = async (e: FormEvent) => {
+  //   e.preventDefault()
+  //   setSubmitError('')
+  //   const validationErrors = validateForm(form)
+  //   setErrors(validationErrors)
+  //   if (Object.keys(validationErrors).length > 0) return
 
-    setLoading(true)
-    try {
-      await submitContactForm(form)
-      setSubmitted(true)
-    } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : 'Failed to send message.')
-    } finally {
-      setLoading(false)
-    }
-  }
+  //   setLoading(true)
+  //   try {
+  //     await submitContactForm(form)
+  //     setSubmitted(true)
+  //   } catch (err) {
+  //     setSubmitError(err instanceof Error ? err.message : 'Failed to send message.')
+  //   } finally {
+  //     setLoading(false)
+  //   }
+  // }
 
   const updateField = (field: keyof ContactFormData, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }))
